@@ -1,5 +1,7 @@
 <?php 
 
- echo "Hello World!";
- 
+ echo "Exibir o painel administrativo";
+
+
+
 ?>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/animacoes.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  //Lista automaticamente os clientes já cadastrados
+  $.post("listarclientes.php", function(data){
+      $('#containerclientes').html(data).slideDown("slow");
+  });
+  
+  //Exibe o mini painel para cadastrar novos clientes
+  $('#exibircontainercadastro').click(function(){
+     $('#containercadastro').toggle();
+  });
+
+  //Solicita um novo cadastro de cliente.
+  $("#cadastro").submit(function(evet){
+    event.preventDefault();
+
+    var nome = $('input[name="nome"]').val();
+    var cpf = $('input[name="cpf"]').val();
+    var email = $('input[name="email"]').val();
+
+    $.post("cadastrarcliente.php",
+    {
+      nome: nome,
+      cpf: cpf,
+      email: email
+    },
+    function(data,status){
+       //Seta a resposta vinda do Back-End
+       $("#respostacadastrar").html(data);
+
+       //Limpa os inputs
+       $('input[name="nome"]').val("").focus();
+       $('input[name="cpf"]').val("");
+       $('input[name="email"]').val("");
+
+       //Atualiza a lista de clientes solicitando pro Back-End.
+       $.post("listarclientes.php", function(data){
+           $('#containerclientes').html(data).slideDown("slow");
+       });
+
+      setTimeout(function(){
+        $("#respostacadastrar").text('');
+      },3000);
+    });
+  });
+
+});
+</script>
+</head>
+<body>
+
+<div id="containercadastro">
+  <div id="respostacadastrar"></div>
+  <form id="cadastro">
+      <p>
+      Nome
+      <input name="nome" type="text" required/>
+      </p>
+      <p>
+
+      Cpf
+      <input name="cpf" type="text" required/>
+      </p>
+
+      <p>
+      Email
+      <input name="email" type="email" required/>
+      </p>
+
+      <button id="cadastrarcliente">Cadastrar Novo Cliente</button>
+  </form>
+  </br>
+</div>
+
+<button id="exibircontainercadastro">Cadastrar Novos Clientes</button>
+
+<div id="containerclientes"></div>
+
+</body>
+</html>
