@@ -1,76 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/animacoes.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="funcoes.js"></script>
 <script>
 $(document).ready(function(){
 
-  //Lista automaticamente os clientes já cadastrados
-  $.post("listarclientes.php", function(data){
-      $('#containerclientes').html(data).slideDown("slow");
-  });
-  
-  //Exibe o mini painel para cadastrar novos clientes
-  $('#exibircontainercadastro').click(function(){
-     $('#containercadastro').toggle();
-  });
+   //Lista os clientes existentes 
+   listarclientes();
 
-  //Solicita um novo cadastro de cliente.
-  $("#cadastro").submit(function(evet){
-    event.preventDefault();
+   //Exibe/oculta o mini painel de cadastro de novos clientes
+   togglepainelcadastro();
 
-    var nome = $('input[name="nome"]').val();
-    var cpf = $('input[name="cpf"]').val();
-    var email = $('input[name="email"]').val();
-
-    $.post("cadastrarcliente.php",
-    {
-      nome: nome,
-      cpf: cpf,
-      email: email
-    },
-    function(data,status){
-       //Seta a resposta vinda do Back-End
-       $("#respostacadastrar").html(data);
-
-       //Limpa os inputs
-       $('input[name="nome"]').val("").focus();
-       $('input[name="cpf"]').val("");
-       $('input[name="email"]').val("");
-
-       //Atualiza a lista de clientes solicitando pro Back-End.
-       $.post("listarclientes.php", function(data){
-           $('#containerclientes').html(data).slideDown("slow");
-       });
-
-      setTimeout(function(){
-        $("#respostacadastrar").text('');
-      },3000);
-    });
-  });
+   //Solicita o cadastro de um novo cliente caso o formulário do painel seja submetido
+   cadastrarcliente(); 
 
 });
+
+
+
 </script>
 </head>
 <body>
 
+<div id="menssagens"></div>
 <div id="containercadastro">
-  <div id="respostacadastrar"></div>
   <form id="cadastro">
       <p>
       Nome
-      <input name="nome" type="text" required/>
+      <input name="cadastrarnome" type="text" required/>
       </p>
       <p>
 
       Cpf
-      <input name="cpf" type="text" required/>
+      <input name="cadastrarcpf" type="text" required/>
       </p>
 
       <p>
       Email
-      <input name="email" type="email" required/>
+      <input name="cadastraremail" type="email" required/>
       </p>
 
       <button id="cadastrarcliente">Cadastrar Novo Cliente</button>
@@ -78,7 +48,7 @@ $(document).ready(function(){
   </br>
 </div>
 
-<button id="exibircontainercadastro">Cadastrar Novos Clientes</button>
+<button id="exibircontainercadastro">Mostrar Painel de Cadastro</button>
 
 <div id="containerclientes"></div>
 

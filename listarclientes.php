@@ -8,13 +8,24 @@
         
     //Executamos nossa query
     $result = mysqli_query($conectar, $query);     
-  
+
+    $test = "Daniel";
+
   	echo "<h3>Lista de clientes</h3>";
-    //Percorremos a nossa tabela de notebooks
+    //Percorremos a nossa tabela
      while($dados =  mysqli_fetch_array($result)){
+     	   $btneditar = '<button onclick="editarcliente(\''.$dados['idcliente']. '\',\''.$dados['nomecliente'].'\')">Editar</button>';
+     	   $btnexcluir = '<button onclick="excluircliente(\''.$dados['idcliente']. '\',\''.$dados['nomecliente'].'\')">Excluir</button>';
+
      	   echo "<hr/>";
-           echo "<p> Nome: ".$dados['nomecliente']."</p>";
-           echo "<p> Cpf: ".$dados['cpf']."</p>"; 
-           echo "<p> Email: ".$dados['email']."</p>";
-       } 
+           echo "<p> Nome: <input type='text' name='nome' value='".$dados['nomecliente']."' /></p>";
+           echo "<p> Cpf: <input type='text' name='cpf' value='".$dados['cpf']."' /></p>"; 
+           echo "<p> Email: <input type='text' name='email' value='".$dados['email']."' /></p>";
+           echo "<p>".
+           		$btneditar.
+           		$btnexcluir.
+           		"</p>";          
+     } 
 ?>
+
+
