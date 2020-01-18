@@ -13,7 +13,9 @@
     $result = mysqli_query($conectar, $query);     
   
  	if($result){
- 		echo "<h1>Cliente <u>".$nomecliente."</u> excluido com sucesso.</h1>";
+ 		echo "<div class='alert alert-primary' role='alert'>";
+ 		echo    "<h3>Cliente <u>".$nomecliente."</u> excluido com sucesso.</h3>";
+ 		echo "</div>";
  	}
   
 
