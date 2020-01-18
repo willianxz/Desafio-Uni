@@ -58,12 +58,34 @@ function cadastrarcliente(){
   });
 }
 
+function editarcliente(idcliente, nomecliente){ 
+
+  var r = confirm("Deseja realmente editar esse cliente: "+nomecliente+"?");
+    if (r == true) {
+
+    var nomecliente = $("input[name='nome"+idcliente+"']").val();
+    var cpf = $("input[name='cpf"+idcliente+"']").val();
+    var email = $("input[name='email"+idcliente+"']").val();
+
+    var url = "editarcliente.php?idcliente="+idcliente+"&nomecliente="+nomecliente+"&cpf="+cpf+"&email="+email;
+       $.get(url, function(data){    
+           $('#menssagens').html(data).slideDown("slow");
+           listarclientes();
+       });
+
+        setTimeout(function(){
+          $("#menssagens").html('');
+        },3000);
+    } 
+}
+
 function excluircliente(idcliente, nomecliente){
 
 	  var r = confirm("Deseja realmente excluir esse cliente: "+nomecliente+"?");
 	  if (r == true) {
+    var url ="excluircliente.php?idcliente="+idcliente+"&nomecliente="+nomecliente;
 		//Aqui eu mostro que também é possivel fazer através de GET.
-		$.get("excluircliente.php?idcliente="+idcliente, function(data){		
+		$.get(url, function(data){		
 	         $('#menssagens').html(data).slideDown("slow");
 	         listarclientes();
 	     });
