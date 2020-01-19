@@ -131,6 +131,7 @@ function cadastrarproduto(){
     var valorunitario = $('input[name="cadastrarvalorunitario"]').val();
     var quantidade = $('input[name="cadastrarquantidade"]').val();
     var codbarra = $('input[name="cadastrarcodbarra"]').val();
+    codbarra = codbarra.toUpperCase();
 
     $.post("cadastrarproduto.php",
     {
@@ -148,8 +149,7 @@ function cadastrarproduto(){
         //Lista automaticamente os produtos já cadastrados
         listarprodutos();
 
-        limparcadastroproduto();
-       
+        limparcadastroproduto();       
 
       setTimeout(function(){
         $("#menssagens").html('');
@@ -169,7 +169,7 @@ function editarproduto(idproduto, nomeproduto){
     var valorunitario = $("input[name='valorunitario"+idproduto+"']").val();
     var quantidade = $("input[name='quantidade"+idproduto+"']").val();
     var codbarra = $("input[name='codbarra"+idproduto+"']").val();
-    
+    codbarra = codbarra.toUpperCase();
 
     var url = "editarproduto.php?idproduto="+idproduto+"&nomeproduto="+nomeproduto+"&valorunitario="+valorunitario+"&quantidade="+quantidade+"&codbarra="+codbarra;
        $.get(url, function(data){    
