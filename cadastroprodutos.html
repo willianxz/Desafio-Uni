@@ -10,7 +10,14 @@
 <script type="text/javascript" src="funcoes.js"></script>
 <script>
 $(document).ready(function(){
-   
+   //Lista os produtos existentes 
+   listarprodutos();
+
+   //Exibe/oculta o mini painel de cadastro de novos produtos
+   togglepainelcadastro();
+
+   //Solicita o cadastro de um novo produto caso o formulário do painel seja submetido
+   cadastrarproduto(); 
 
 });
 </script>
@@ -35,7 +42,7 @@ $(document).ready(function(){
         <a class="nav-link" href="cadastropedidos.html">Cadastro Pedido <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-   <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="index.html">
     <img src="img/iconesair1.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Sair
   </a>
@@ -44,39 +51,53 @@ $(document).ready(function(){
 
 
 <div class="col-md-12 jumbotron" style="background-color:skyblue;">
-  <h3 style="text-align: center;">Painel Administrativo</h3>  
+  <h3 style="text-align: center;">Cadastro de Produto</h3>  
 </div>
 
-<div class="card-group">
-  <div class="card">
-    <a href="cadastroclientes.html" style="text-decoration: none;">
-    <img src="img/cliente1.jpg" class="card-img-top" alt="Cadastro de clientes">
-    <div class="card-body">
-      <h5 class="card-title">Cadastro de Cliente</h5>
-      <p class="card-text">Neste módulo você pode consultar,cadastrar, atualizar e excluir seus clientes.</p>
-    </div>
-    </a>
-  </div>
-  <div class="card">
-    <a href="cadastroprodutos.html" style="text-decoration: none;">
-     <img src="img/produto1.jpg" style="width: 350px; height: 300px;padding-left: 20px;" class="card-img-top" alt="Cadastro de produtos">
-     <div class="card-body">
-       <h5 class="card-title">Cadastro de Produto</h5>
-       <p class="card-text">Neste módulo você pode consultar,cadastrar, atualizar e excluir seus produtos.</p>
-     </div>
-    </a>
-  </div>
-  <div class="card">
-  <a href="cadastropedidos.html" style="text-decoration: none;">
-    <img src="img/pedido1.jpg" class="card-img-top" alt="Cadastro de pedidos">
-    <div class="card-body">
-      <h5 class="card-title">Cadastro de Pedido</h5>
-      <p class="card-text">Neste módulo você pode consultar,cadastrar, atualizar e excluir seus pedidos.</p>
-    </div>
-    </a>
-  </div>
-</div>
+<div id="menssagens" class="col-md-12" style="text-align: center;"></div>
+<div class="col-md-4"></div>
+<div class="container-fluid col-md-4">
+<div id="containercadastro">
+  <form id="cadastro">
+     
+     <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nome do Produto:</span>
+        </div>
+        <input type="text" name="cadastrarnomeproduto" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      </div>
 
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Valor Unitário:</span>
+        </div>
+        <input type="number" name="cadastrarvalorunitario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      </div>
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Quantidade:</span>
+        </div>
+        <input type="number" name="cadastrarquantidade" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Código de Barra:</span>
+        </div>
+        <input type="text" name="cadastrarcodbarra" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      </div>
+
+      <button id="cadastrarproduto" class="btn btn-primary">Cadastrar Novo Produto</button>
+  </form>
+
+  </br>
+ </div> 
+   <button id="exibircontainercadastro" style="margin-left: 22%;">Mostrar Painel de Cadastro</button>
+</div>
+<div class="col-md-4"></div>
 
 
 <div class="col-md-4"></div>

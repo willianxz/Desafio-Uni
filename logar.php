@@ -6,7 +6,7 @@
   $senhaadministrativo = $_POST['senhaadministrativo'];
   $senhaadministrativo = md5($senhaadministrativo."umafraseparamantersenhasegura");
   
-  $emailadministrativovalido = "willian_xzz@hotmail.com";
+  $emailadministrativovalido = "emailadministrativouniasselvi@hotmail.com";
   $senhaadministrativovalido = md5("uniasselvi"."umafraseparamantersenhasegura");
 
   $emailok = $emailadministrativo === $emailadministrativovalido;
