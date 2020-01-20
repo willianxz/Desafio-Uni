@@ -10,7 +10,7 @@
 <script type="text/javascript" src="funcoes.js"></script>
 <script>
 $(document).ready(function(){
-   //Lista os clientes existentes 
+   //Lista os clientes existentes
    listarclientes();
 
    //Exibe/oculta o mini painel de cadastro de novos clientes
@@ -96,6 +96,8 @@ $(document).ready(function(){
 <div class="col-md-4"></div>
 <div id="containerclientes" class="container-fluid col-md-4" style="text-align: center;"></div>
 <div class="col-md-4"></div>
+
+<button type="button" class="btn btn-primary btn-lg btn-block" onclick="listarclientes(5);">CARREGAR MAIS</button>
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

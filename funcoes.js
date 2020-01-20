@@ -22,9 +22,9 @@ function limparcadastrocliente(){
      $('input[name="cadastraremail"]').val("");
 }
 
-function listarclientes(){
+function listarclientes(limitevisualizacaoclientes = 0){
 	 //Lista automaticamente os clientes já cadastrados
-	 $.post("listarclientes.php", function(data){
+	 $.post("listarclientes.php", {limitevisualizacaoclientes: limitevisualizacaoclientes}, function(data){
 	     $('#containerclientes').html(data).slideDown("slow");
 	 });
 }
@@ -114,9 +114,9 @@ function limparcadastroproduto(){
 }
 
 
-function listarprodutos(){
+function listarprodutos(limitevisualizacaoprodutos = 0){
    //Lista automaticamente os produtos já cadastrados
-   $.post("listarprodutos.php", function(data){
+   $.post("listarprodutos.php", {limitevisualizacaoprodutos: limitevisualizacaoprodutos}, function(data){
        $('#containerprodutos').html(data).slideDown("slow");
    });
 }
@@ -157,7 +157,6 @@ function cadastrarproduto(){
     });
   });
 }
-
 
 
 function editarproduto(idproduto, nomeproduto){ 

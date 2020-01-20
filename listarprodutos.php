@@ -1,10 +1,22 @@
 <?php
+    
+     session_start();
+
+     if(!isset($_SESSION['limitevisualizacaoprodutos'])){
+        $_SESSION['limitevisualizacaoprodutos'] = 5;
+     }
+
+    if(isset($_POST['limitevisualizacaoprodutos']) && !empty($_POST['limitevisualizacaoprodutos'])){
+        $_SESSION['limitevisualizacaoprodutos'] += $_POST['limitevisualizacaoprodutos'];
+    }
+
+    $limitevisualizacaoprodutos = $_SESSION['limitevisualizacaoprodutos'];
 
 	//Incluimos a nossa conexão com o banco.
     $conectar = include('config/conectdb.php'); 
 
     //Fazemos a nossa query.
-	$query = "SELECT * FROM produto order by nomeproduto"; 
+	$query = "SELECT * FROM produto order by nomeproduto limit ".$limitevisualizacaoprodutos; 
         
     //Executamos nossa query
     $result = mysqli_query($conectar, $query);     
