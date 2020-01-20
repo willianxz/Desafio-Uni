@@ -198,3 +198,49 @@ function excluirproduto(idproduto, nomeproduto){
         },3000);
     } 
 }
+
+
+
+//PEDIDO
+
+
+function adicionarmaisproduto(){
+  var novoprodutohtml = "<div class='form-row'>"+
+                            "<div class='col'>"+
+                                "<div class='form-group' style='text-align: center;'>"+
+                                   "<select class='form-control'>"+
+                                     "<option selected>Nenhum</option>"+
+                                     "<option>Laranja</option>"+
+                                     "<option>Melancia</option>"+
+                                     "<option>Batata</option>"+
+                                     "<option>Couve Flor</option>"+
+                                     "</select>"+
+                                 "</div>"+
+                             "</div>"+
+                          "<div class='col'>"+
+                            "<input type='number' class='form-control' value='0' placeholder='Quantidade'>"+
+                          "</div>"+
+                       "</div>";
+
+  $("#produtoscadastro").append(novoprodutohtml);
+}
+
+
+
+function cadastrarpedido(){
+  //Solicita um novo cadastro de pedido.
+  $("#cadastro").submit(function(evet){
+    alert('Desculpe, essa função no momento não foi desenvolvida.');
+    event.preventDefault();
+      //Soliite o back-end para cadastrar o pedido.
+  });
+}
+
+
+function editarpedido(){ 
+  alert('Desculpe, essa função no momento não foi desenvolvida.');  
+}
+
+function excluirpedido(){
+    alert('Desculpe, essa função no momento não foi desenvolvida.');  
+}

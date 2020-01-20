@@ -80,7 +80,7 @@ $(document).ready(function(){
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">Valor Unitário:</span>
         </div>
-        <input type="number" name="cadastrarvalorunitario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+        <input type="text" name="cadastrarvalorunitario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
       </div>
 
 

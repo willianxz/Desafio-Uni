@@ -3,9 +3,12 @@ Olá aqui está as informações relevantes sobre esse sistema:
 Seu e-mail administrativo: emailadministrativouniasselvi@hotmail.com
 Sua senha: uniasselvi
 
-Primeiramente antes de tudo, rode os serviços de banco de dados (Mysql) com (Xamp) ou qualquer outro, em seguida crie o banco de dados com o Mysql Workbeach usando o arquivo "modelobanco.mwb" abrindo ele, selecionando então "Database" no menu em cima, depois vá em Syncronize Model dando next, até ser criado o banco de dados. Caso não tenha o Mysql Workbeach tente usar o arquivo sqlcreatedb.sql, que contem a sintaxy sql para criar o banco de dados.
+Primeiramente antes de tudo, rode os serviços de banco de dados (Mysql) e Apache com (Xamp) ou qualquer outro, em seguida crie o banco de dados com o Mysql Workbeach usando o arquivo "modelobanco.mwb" abrindo ele, selecionando então "Database" no menu em cima, depois vá em Syncronize Model dando next, até ser criado o banco de dados. Caso não tenha o Mysql Workbeach tente usar o arquivo sqlcreatedb.sql, que contem a sintaxy sql para criar o banco de dados.
 
 Após ter o banco de dados criado, você pode usar o arquivo insertsbanco.sql que já contem alguns inserts prontos para serem executados, fornecendo assim dados iniciais para o sistema.
 
-Na pasta config, há um arquivo chamado "conectdb.php", caso você não esteja usando o localhost ou esteja usando alguma senha no seu banco, abra esse arquivo e preencha a conexão conforme você esteja utilizando.
+Para visualizar o sistema, abra seu navegador e digite //localhost/caminhorelativoondevocecolocouosarquivosdosistema
+
+
+Na pasta config, há um arquivo chamado "conectdb.php", caso você não esteja usando o localhost com a porta padrão ou esteja usando alguma senha no seu banco, abra esse arquivo e preencha a conexão conforme você esteja utilizando.
 
