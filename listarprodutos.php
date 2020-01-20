@@ -1,6 +1,13 @@
 <?php
     
-     session_start();
+      session_start();
+
+      //Verifica se realmente o usuario pode estar aqui.
+      $logado = isset($_SESSION['logado']) && ($_SESSION['logado']);
+      if(!$logado){
+        header("location: index.html");
+      }
+
 
      if(!isset($_SESSION['limitevisualizacaoprodutos'])){
         $_SESSION['limitevisualizacaoprodutos'] = 5;

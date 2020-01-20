@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  $logado = isset($_SESSION['logado']) && ($_SESSION['logado']);
+  if(!$logado){
+    header("location: index.html");
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,16 +36,16 @@ $(document).ready(function(){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="cadastroclientes.html">Cadastro Cliente <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastroclientes.php">Cadastro Cliente <span class="sr-only">(current)</span></a>
       </li>
      <li class="nav-item active">
-        <a class="nav-link" href="cadastroprodutos.html">Cadastro Produto <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastroprodutos.php">Cadastro Produto <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="cadastropedidos.html">Cadastro Pedido <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastropedidos.php">Cadastro Pedido <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-   <a class="navbar-brand" href="index.html">
+   <a class="navbar-brand" href="deslogar.php">
     <img src="img/iconesair1.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Sair
   </a>
@@ -49,7 +59,7 @@ $(document).ready(function(){
 
 <div class="card-group">
   <div class="card">
-    <a href="cadastroclientes.html" style="text-decoration: none;">
+    <a href="cadastroclientes.php" style="text-decoration: none;">
     <img src="img/cliente1.jpg" class="card-img-top" alt="Cadastro de clientes">
     <div class="card-body">
       <h5 class="card-title">Cadastro de Cliente</h5>
@@ -58,7 +68,7 @@ $(document).ready(function(){
     </a>
   </div>
   <div class="card">
-    <a href="cadastroprodutos.html" style="text-decoration: none;">
+    <a href="cadastroprodutos.php" style="text-decoration: none;">
      <img src="img/produto1.jpg" style="width: 350px; height: 300px;padding-left: 20px;" class="card-img-top" alt="Cadastro de produtos">
      <div class="card-body">
        <h5 class="card-title">Cadastro de Produto</h5>
@@ -67,7 +77,7 @@ $(document).ready(function(){
     </a>
   </div>
   <div class="card">
-  <a href="cadastropedidos.html" style="text-decoration: none;">
+  <a href="cadastropedidos.php" style="text-decoration: none;">
     <img src="img/pedido1.jpg" class="card-img-top" alt="Cadastro de pedidos">
     <div class="card-body">
       <h5 class="card-title">Cadastro de Pedido</h5>

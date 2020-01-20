@@ -14,8 +14,10 @@
   if($emailok && $senhaok){
   	$_SESSION['logado'] = true;
   	header("location: paineladministrativo.php");
+  }else{
+    header("location: index.html");
   }
 
-  header("location: index.html");
+
 
 ?>

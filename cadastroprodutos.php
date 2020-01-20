@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  $logado = isset($_SESSION['logado']) && ($_SESSION['logado']);
+  if(!$logado){
+    header("location: index.html");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,16 +41,16 @@ $(document).ready(function(){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="cadastroclientes.html">Cadastro Cliente <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastroclientes.php">Cadastro Cliente <span class="sr-only">(current)</span></a>
       </li>
      <li class="nav-item active">
-        <a class="nav-link" href="cadastroprodutos.html">Cadastro Produto <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastroprodutos.php">Cadastro Produto <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="cadastropedidos.html">Cadastro Pedido <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastropedidos.php">Cadastro Pedido <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="deslogar.php">
     <img src="img/iconesair1.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Sair
   </a>
